@@ -1,0 +1,62 @@
+@isTest  
+public class TestMission6 {
+
+    @isTest  
+    
+    public static void test1massUpdateContacts2(){
+        
+        
+
+        Contact newContact1 = new Contact();  
+        newContact1.FirstName = 'Contact1';  
+        newContact1.LastName= 'Contact1';  
+        newContact1.Prior_Qualification__c = 'Tertiary Post-Graduate';  
+        newContact1.Enrolment_Progression__c= 'Advanced';  
+         
+        insert newContact1;  
+
+        Mission6.massUpdateContacts2();
+
+       
+ System.assertEquals( 'Extra', newContact1.Enrolment_Progression__c ) ; 
+ }
+
+
+ @isTest  
+    
+    public static void test2massUpdateContacts2(){
+        Contact newContact2 = new Contact();  
+        newContact2.FirstName = 'Contact2';  
+        newContact2.LastName= 'Contact2';  
+        newContact2.Prior_Qualification__c = 'Tertiary Graduate';  
+        newContact2.Enrolment_Progression__c= 'Ultimate';  
+         
+        insert newContact2;
+
+        Mission6.massUpdateContacts2();
+
+        
+ System.assertEquals('Ultimate', newContact2.Enrolment_Progression__c) ; 
+ }
+
+
+
+ @isTest  
+    
+    public static void test3massUpdateContacts2(){
+
+        
+        Contact newContact3 = new Contact();  
+        newContact3.FirstName = 'Contact3';  
+        newContact3.LastName= 'Contact3';  
+        newContact3.Prior_Qualification__c = 'Below Tertiary';  
+        newContact3.Enrolment_Progression__c= 'Extra';  
+        
+        insert newContact3;
+         
+        Mission6.massUpdateContacts2();
+
+   
+ System.assertEquals('Advanced', newContact3.Enrolment_Progression__c) ; 
+ }
+}

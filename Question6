@@ -1,0 +1,31 @@
+public class Mission6 {
+public static void massUpdateContacts2(){ 
+
+         
+    List<Contact> updatedContactList = new List<Contact>(); 
+
+    List<Contact> ContactList = [SELECT Prior_Qualification__c, Enrolment_Progression__c, Id FROM Contact]; 
+
+    for(Contact con:ContactList){ 
+        IF (con.Prior_Qualification__c=='Below Tertiary'){
+            con.Enrolment_Progression__c='Advanced';
+        }
+        
+        Else IF (con.Prior_Qualification__c=='Tertiary Graduate'){
+            con.Enrolment_Progression__c='Ultimate';
+        }
+        Else IF (con.Prior_Qualification__c=='Tertiary Post-Graduate'){
+            con.Enrolment_Progression__c='Extra';
+        }
+  
+
+        updatedContactList.add(con);             
+
+    } 
+
+    update updatedContactList; 
+
+     
+
+} 
+}

@@ -1,0 +1,26 @@
+trigger UPdateMission6 on Contact (before insert,before update,after insert,after update) { 
+
+    for(Contact con:Trigger.new){         
+      
+
+        if(Trigger.isAfter){             
+
+if(Trigger.isInsert){ 
+
+List<Training_Courses__c> courseList = [SELECT Id, Name FROM Training_Courses__c];     
+
+                    Student_Course__c newCourse = new Student_Course__c(); 
+
+                    newCourse.Training_Courses__c = 'a005g00003Ad6rMAAR'; 
+                    newCourse.Student__c = con.Id; 
+           
+                
+                    insert newCourse; 
+
+            } 
+
+        } 
+
+    } 
+
+}

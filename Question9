@@ -1,0 +1,28 @@
+@isTest 
+public class testUPdateMission6 {
+
+    @isTest 
+
+    private static void testUPdateMission61(){ 
+
+         
+
+        Contact con = new Contact(); 
+
+        con.FirstName= 'Testing'; 
+        con.LastName= 'Testing';
+        con.Prior_Qualification__c='Below Tertiary';
+        con.Enrolment_Progression__c='Extra';
+
+        insert con; 
+
+        
+        List<Student_Course__c> conList = [ SELECT Id, Student__c, Training_Courses__c FROM Student_Course__c Where Student__c=: con.Id  ]; 
+
+        System.assertEquals('a005g00003Ad6rMAAR', conList[0].Training_Courses__c); 
+
+    } 
+
+     
+
+}
